@@ -1,0 +1,37 @@
+{
+  "name": "@mbarella/vue-chatbot",
+  "version": "0.1.0",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "dist/vue-chatbot.umd.cjs",
+  "module": "dist/vue-chatbot.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/vue-chatbot.js",
+      "require": "./dist/vue-chatbot.umd.cjs"
+    },
+    "./vue-chatbot.css": "./dist/vue-chatbot.css"
+  },
+  "peerDependencies": {
+    "vue": "^3.x",
+    "vue-router": "^4.x"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0",
+    "vite-plugin-dts": "^4.3.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

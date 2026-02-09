@@ -1,0 +1,104 @@
+.vue-chatbot {
+  --vue-chatbot-bg: #f5f5f5;
+  --vue-chatbot-border: #e0e0e0;
+  --vue-chatbot-radius: 8px;
+  --vue-chatbot-font-family: system-ui, sans-serif;
+  --vue-chatbot-font-size: 14px;
+  --vue-chatbot-message-user-bg: #e3f2fd;
+  --vue-chatbot-message-user-color: #0d47a1;
+  --vue-chatbot-message-assistant-bg: #fff;
+  --vue-chatbot-message-assistant-color: #212121;
+  --vue-chatbot-message-role-color: #757575;
+  --vue-chatbot-input-bg: #fff;
+  --vue-chatbot-input-border: #e0e0e0;
+  --vue-chatbot-input-color: #212121;
+  --vue-chatbot-send-bg: #1976d2;
+  --vue-chatbot-send-color: #fff;
+  --vue-chatbot-send-disabled-bg: #bdbdbd;
+  --vue-chatbot-send-disabled-color: #757575;
+
+  font-family: var(--vue-chatbot-font-family);
+  font-size: var(--vue-chatbot-font-size);
+  background: var(--vue-chatbot-bg);
+  border: 1px solid var(--vue-chatbot-border);
+  border-radius: var(--vue-chatbot-radius);
+  padding: 12px;
+  min-width: 280px;
+  max-width: 100%;
+}
+
+.vue-chatbot-messages {
+  min-height: 120px;
+  max-height: 360px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+
+.vue-chatbot-message {
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: var(--vue-chatbot-radius);
+}
+
+.vue-chatbot-message--user {
+  background: var(--vue-chatbot-message-user-bg);
+  color: var(--vue-chatbot-message-user-color);
+}
+
+.vue-chatbot-message--assistant {
+  background: var(--vue-chatbot-message-assistant-bg);
+  color: var(--vue-chatbot-message-assistant-color);
+}
+
+.vue-chatbot-message-role {
+  display: block;
+  font-size: 0.85em;
+  color: var(--vue-chatbot-message-role-color);
+  margin-bottom: 4px;
+}
+
+.vue-chatbot-message-content {
+  display: block;
+}
+
+.vue-chatbot-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.vue-chatbot-input {
+  flex: 1;
+  background: var(--vue-chatbot-input-bg);
+  border: 1px solid var(--vue-chatbot-input-border);
+  border-radius: var(--vue-chatbot-radius);
+  color: var(--vue-chatbot-input-color);
+  padding: 8px 10px;
+  font-family: var(--vue-chatbot-font-family);
+  font-size: var(--vue-chatbot-font-size);
+}
+
+.vue-chatbot-input:focus {
+  outline: none;
+  border-color: var(--vue-chatbot-send-bg);
+}
+
+.vue-chatbot-send {
+  background: var(--vue-chatbot-send-bg);
+  color: var(--vue-chatbot-send-color);
+  border: none;
+  border-radius: var(--vue-chatbot-radius);
+  padding: 8px 14px;
+  font-family: var(--vue-chatbot-font-family);
+  font-size: var(--vue-chatbot-font-size);
+  cursor: pointer;
+}
+
+.vue-chatbot-send:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.vue-chatbot-send:disabled {
+  background: var(--vue-chatbot-send-disabled-bg);
+  color: var(--vue-chatbot-send-disabled-color);
+  cursor: not-allowed;
+}
