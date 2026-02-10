@@ -10,13 +10,13 @@ export async function callAgent(
   messages: AgentApiMessage[],
   options?: { headers?: Record<string, string> }
 ): Promise<AgentApiResponse> {
-  const headers = {
+  const headersInit: Record<string, string> = {
     'Content-Type': 'application/json',
     ...(options?.headers ?? {}),
   }
   const res = await fetch(apiBaseUrl, {
     method: 'POST',
-    headers,
+    headers: new Headers(headersInit),
     body: JSON.stringify({ messages }),
   })
   if (!res.ok) throw new Error(`Agent API error: ${res.status}`)
