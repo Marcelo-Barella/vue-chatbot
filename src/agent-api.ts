@@ -7,11 +7,16 @@ import type { AgentToolCall } from './tool-runner'
 
 export async function callAgent(
   apiBaseUrl: string,
-  messages: AgentApiMessage[]
+  messages: AgentApiMessage[],
+  options?: { headers?: Record<string, string> }
 ): Promise<AgentApiResponse> {
+  const headers = {
+    'Content-Type': 'application/json',
+    ...(options?.headers ?? {}),
+  }
   const res = await fetch(apiBaseUrl, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify({ messages }),
   })
   if (!res.ok) throw new Error(`Agent API error: ${res.status}`)

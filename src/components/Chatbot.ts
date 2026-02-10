@@ -33,7 +33,9 @@ export default defineComponent({
           role: m.role as 'user' | 'assistant',
           content: m.content,
         }))
-        const res = await callAgent(options.apiBaseUrl, apiMessages)
+        const res = await callAgent(options.apiBaseUrl, apiMessages, {
+          headers: options.headers,
+        })
         const toolCalls = parseToolCalls(res.message)
         if (toolCalls.length > 0) {
           runToolCalls(options.router, toolCalls)
@@ -51,7 +53,13 @@ export default defineComponent({
             },
             ...toolResults,
           ]
-          const followRes = await callAgent(options.apiBaseUrl, followUpMessages)
+          const followRes = await callAgent(
+            options.apiBaseUrl,
+            followUpMessages,
+            {
+              headers: options.headers,
+            }
+          )
           const finalContent = followRes.message?.content ?? ''
           if (finalContent) {
             messages.value.push({ role: 'assistant', content: finalContent })

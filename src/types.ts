@@ -4,6 +4,7 @@ export interface VueChatbotOptions {
   router: Router
   apiBaseUrl: string
   theme?: Record<string, string>
+  headers?: Record<string, string>
 }
 
 export interface NavigateToolCall {

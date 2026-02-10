@@ -21,7 +21,13 @@ import { router } from './router'
 
 const app = createApp(App)
 app.use(router)
-app.use(VueChatbot, { router, apiBaseUrl: 'https://your-agent-api.example.com' })
+app.use(VueChatbot, {
+  router,
+  apiBaseUrl: 'https://your-agent-api.example.com',
+  headers: {
+    Authorization: 'Bearer YOUR_TOKEN',
+  },
+})
 app.mount('#app')
 ```
 
@@ -44,7 +50,14 @@ import 'vue-chatbot/vue-chatbot.css'
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(VueChatbot, {
     router: nuxtApp.$router,
-    apiBaseUrl: process.env.NUXT_PUBLIC_AGENT_API_URL || 'https://your-agent-api.example.com',
+    apiBaseUrl:
+      process.env.NUXT_PUBLIC_AGENT_API_URL ||
+      'https://your-agent-api.example.com',
+    headers: {
+      Authorization: `Bearer ${
+        process.env.NUXT_PUBLIC_AGENT_API_TOKEN || 'YOUR_TOKEN'
+      }`,
+    },
   })
 })
 ```
