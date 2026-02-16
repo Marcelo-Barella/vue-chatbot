@@ -1,6 +1,6 @@
 {
   "name": "@mbarella/vue-chatbot",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "files": [
     "dist",
     "README.md"
